@@ -12,11 +12,11 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 @JsonDeserialize(as = SearchLocation.class, builder = SearchLocation.Builder.class)
 public interface AbstractSearchLocation {
 
-	Optional<Pair<Long, Long>> getP1();
+	Optional<Pair<Double, Double>> getP1();
 
-	Optional<Pair<Long, Long>> getP2();
+	Optional<Pair<Double, Double>> getP2();
 
-	Optional<AbstractLocation.Type> getType();
+	Optional<AbstractLocationDto.Type> getType();
 
 	Optional<Integer> getLimit();
 

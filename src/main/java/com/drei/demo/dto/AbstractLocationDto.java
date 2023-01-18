@@ -7,8 +7,8 @@ import org.immutables.value.Value;
 
 @Value.Style(typeAbstract = { "Abstract*" }, typeImmutable = "*")
 @Value.Immutable
-@JsonDeserialize(as = Location.class, builder = Location.Builder.class)
-public interface AbstractLocation {
+@JsonDeserialize(as = LocationDto.class, builder = LocationDto.Builder.class)
+public interface AbstractLocationDto {
 
 	public enum Type {
 

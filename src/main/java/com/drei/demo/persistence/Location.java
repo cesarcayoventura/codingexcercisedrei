@@ -1,8 +1,12 @@
 package com.drei.demo.persistence;
 
-import com.drei.demo.dto.AbstractLocation.Type;
+import com.drei.demo.dto.AbstractLocationDto.Type;
+import com.drei.demo.dto.LocationDto;
+
 import java.math.BigDecimal;
 import java.util.Objects;
+import java.util.Optional;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -93,5 +97,15 @@ public class Location {
 		Location other = (Location) obj;
 		return Objects.equals(id, other.id) && Objects.equals(lat, other.lat) && Objects.equals(lng, other.lng)
 				&& Objects.equals(name, other.name) && type == other.type;
+	}
+	
+	public LocationDto toModel() {
+		return LocationDto.builder()
+				.id(Optional.of(getId()))
+				.name(getName())
+				.lat(getLat())
+				.lng(getLng())
+				.type(getType())
+				.build();
 	}
 }

@@ -1,6 +1,6 @@
 package com.drei.demo.controller;
 
-import com.drei.demo.dto.Location;
+import com.drei.demo.dto.LocationDto;
 import com.drei.demo.dto.SearchLocation;
 import com.drei.demo.service.LocationService;
 import java.util.List;
@@ -20,12 +20,12 @@ public class LocationController {
 	LocationService service;
 
 	@PostMapping(value = "/api/location", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Location createLocation(@RequestBody Location location) {
+	public LocationDto createLocation(@RequestBody LocationDto location) {
 		return service.createLocation(location);
 	}
 
 	@GetMapping(value = "/api/location/search", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Location> searchLocation(@RequestParam Optional<SearchLocation> search) {
+	public List<LocationDto> searchLocation(@RequestParam Optional<SearchLocation> search) {
 		return service.searchLocation(search);
 	}
 }
